@@ -13,7 +13,6 @@
 
 // ////////////////////////////////////////////////////// ///////////////
 
-#include "stdafx.h"
 #include "Base16.h"
 
 const char * Base16::lowerAlphabet = "0123456789abcdef";

@@ -13,7 +13,6 @@
 
 // ////////////////////////////////////////////////////// ///////////////
 
-#include "stdafx.h"
 #include "Base58Alphabet.h"
 
 IBase58Alphabet Base58Alphabet::BitCoin = nullptr;

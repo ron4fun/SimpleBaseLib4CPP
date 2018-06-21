@@ -13,7 +13,6 @@
 
 // ////////////////////////////////////////////////////// ///////////////
 
-#include "stdafx.h"
 #include "Base16.h"
 #include "Base32.h"
 #include "Base32Alphabet.h"

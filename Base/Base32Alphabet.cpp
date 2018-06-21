@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "Base32Alphabet.h"
 #include "CrockfordBase32Alphabet.h"
 

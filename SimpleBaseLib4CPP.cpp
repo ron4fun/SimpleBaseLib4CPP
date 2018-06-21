@@ -1,7 +1,9 @@
-// SimpleBaseLib4CPP.cpp : Defines the entry point for the console application.
-//
 
-#include "stdafx.h"
+#if defined(_MSC_VER)
+	//disble vector assert for nullstring converted to byte array
+	#define _HAS_ITERATOR_DEBUGGING 0
+#endif
+
 #include "Unittest\Base16.h"
 #include "Unittest\Base32Crockford.h"
 #include "Unittest\Base32ExtendedHex.h"

@@ -13,7 +13,6 @@
 
 // ////////////////////////////////////////////////////// ///////////////
 
-#include "stdafx.h"
 #include "Base32.h"
 #include "Base32Alphabet.h"
 #include "../Utils/Utilities.h"

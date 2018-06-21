@@ -13,7 +13,6 @@
 
 // ////////////////////////////////////////////////////// ///////////////
 
-#include "stdafx.h"
 #include "Base58.h"
 #include "Base58Alphabet.h"
 #include "../Utils/PointerUtils.h"

@@ -13,7 +13,6 @@
 
 // ////////////////////////////////////////////////////// ///////////////
 
-#include "stdafx.h"
 #include "Base64Alphabet.h"
 
 IBase64Alphabet Base64Alphabet::Default = nullptr;

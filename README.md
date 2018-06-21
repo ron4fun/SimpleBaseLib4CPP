@@ -1,5 +1,5 @@
 # SimpleBaseLib4CPP
-SimpleBaseLib4CPP is a simple C++11 Base Encoding library that provides at the moment support for encoding and decoding various bases such as Base16, Base32 (various variants), Base58 (various variants) and Base64 (various variants).
+**`SimpleBaseLib4CPP`** is a simple C++11 Base Encoding library that provides at the moment support for encoding and decoding various bases such as Base16, Base32 (various variants), Base58 (various variants) and Base64 (various variants).
 
 **Supported Encodings:**
 
@@ -16,7 +16,6 @@ SimpleBaseLib4CPP is a simple C++11 Base Encoding library that provides at the m
 **Tested Enviroments:**
      
     Visual Studio 2015.
-    Visual Studio 2017.
 
     
 **Usage Examples.**
@@ -32,7 +31,7 @@ SimpleBaseLib4CPP is a simple C++11 Base Encoding library that provides at the m
 		string result;
 
         SimpleBaseLibByteArray bytes = Utilities::convertASCIIStringToByteArray(rawData);
-        
+
 		result = base32->Encode(bytes);
 		        
         return 0;
@@ -50,4 +49,7 @@ This "Software" is Licensed Under  **`MIT License (MIT)`** .
 * :dollar: **Bitcoin**: `1Mcci95WffSJnV6PsYG7KD1af1gDfUvLe6`
 
 
+Conclusion
+--------------------------------------------------
 
+   Special thanks to [Xor-el](https://github.com/xor-el) for making this library avialable in the first place.

@@ -48,7 +48,7 @@ int32_t Base58Alphabet::GetSelf(const char c) const
 	try {
 		return reverseLookupTable.at(c);
 	}
-	catch (const exception &e)
+	catch (const exception e)
 	{
 		//pass
 	}

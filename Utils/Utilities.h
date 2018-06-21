@@ -33,7 +33,7 @@ public:
 		size_t len = S.size();
 		int64_t i = len - 1;
 		
-		while (i >= 0 && HaveChar(S[i], trimchars))
+		while (i >= 0 && HaveChar(S[(uint32_t)i], trimchars))
 		{
 			i--;
 		}
@@ -41,7 +41,7 @@ public:
 		if (i < 0) return "";
 		else if (i == len) return S;
 		
-		return S.substr(0, i + 1);
+		return S.substr(0, (uint32_t)i + 1);
 	}
 	
 	static inline string toUpper(const string &s)

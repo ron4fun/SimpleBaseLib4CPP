@@ -8,7 +8,7 @@
     
     Base58: Bitcoin, Ripple and Flickr alphabets (and any custom alphabet you might have)
 
-	Base32: RFC 4648, Crockford and Extended Hex (BASE32-HEX) alphabets with Crockford character substitution 
+    Base32: RFC 4648, Crockford and Extended Hex (BASE32-HEX) alphabets with Crockford character substitution 
     (or any other custom alphabets you might want to use)   
     
     Base16: An experimental hexadecimal encoder/decoder.
@@ -28,11 +28,11 @@ int main()
 {
     IBase32 base32 = SimpleBaseFactory::CreateBase32Crockford();
     string rawData = "foobar";
-	string result;
+    string result;
 
     SimpleBaseLibByteArray bytes = Utilities::convertASCIIStringToByteArray(rawData);
 
-	result = base32->Encode(bytes);
+    result = base32->Encode(bytes);
 	        
     return 0;
 }

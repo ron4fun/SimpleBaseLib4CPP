@@ -20,21 +20,23 @@
     
 **Usage Examples.**
 
-    #include "Base/SimpleBaseFactory.h"
-	#include "Utils/Utilities.h"
+```c++
+#include "Base/SimpleBaseFactory.h"
+#include "Utils/Utilities.h"
 
-    int main()
-    {
-        IBase32 base32 = SimpleBaseFactory::CreateBase32Crockford();
-        string rawData = "foobar";
-		string result;
+int main()
+{
+    IBase32 base32 = SimpleBaseFactory::CreateBase32Crockford();
+    string rawData = "foobar";
+	string result;
 
-        SimpleBaseLibByteArray bytes = Utilities::convertASCIIStringToByteArray(rawData);
+    SimpleBaseLibByteArray bytes = Utilities::convertASCIIStringToByteArray(rawData);
 
-		result = base32->Encode(bytes);
-		        
-        return 0;
-    }
+	result = base32->Encode(bytes);
+	        
+    return 0;
+}
+```
 
  **Unit Tests:**
 

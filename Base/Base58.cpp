@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -17,7 +17,7 @@
 #include "Base58Alphabet.h"
 #include "../Utils/PointerUtils.h"
 
-const char * Base58::AlphabetNull = "Alphabet Instance cannot be Null \"%s\"";
+const string Base58::AlphabetNull = "Alphabet Instance cannot be null";
 
 Base58::Base58(const IBase58Alphabet _alphabet)
 {
@@ -38,7 +38,7 @@ string Base58::Encode(const SimpleBaseLibByteArray &_bytes) const
 	SimpleBaseLibByteArray output;
 	string value, result = "";
 	
-	bytesLen = bytes.size();
+	bytesLen = (int32_t)bytes.size();
 	if (bytesLen == 0) return result;
 
 	inputPtr = &bytes[0];
@@ -55,10 +55,7 @@ string Base58::Encode(const SimpleBaseLibByteArray &_bytes) const
 
 	if (pInput == pEnd)
 	{
-		result.resize(numZeroes);
-		for (register size_t i = 0; i < size_t(numZeroes); i++)
-			result[i] = char(firstChar);
-
+		result = string(numZeroes, firstChar);
 		return result;
 	}
 
@@ -92,9 +89,8 @@ string Base58::Encode(const SimpleBaseLibByteArray &_bytes) const
 		pOutput++;
 	
 	resultLen = numZeroes + int32_t(pOutputEnd - pOutput);
-	result.resize(resultLen);
-	for (register size_t i = 0; i < size_t(resultLen); i++)
-		result[i] = char(firstChar);
+
+	result = string(resultLen, firstChar);
 
 	resultPtr = &result[0];
 
@@ -119,7 +115,7 @@ SimpleBaseLibByteArray Base58::Decode(const string &_text) const
 	char firstChar;
 	SimpleBaseLibByteArray output, result;
 	
-	textLen = text.size();
+	textLen = (int32_t)text.size();
 	if (textLen == 0) return result;
 
 	inputPtr = &text[0];
@@ -129,7 +125,7 @@ SimpleBaseLibByteArray Base58::Decode(const string &_text) const
 	LowPoint = 0;
 
 	firstChar = alphabet->GetValue()[LowPoint];
-	while ((*pInput == firstChar) && (pInput != pEnd)) 
+	while (pInput != pEnd  && *pInput == firstChar)
 		pInput++;
 	
 	numZeroes = int32_t(pInput - inputPtr);

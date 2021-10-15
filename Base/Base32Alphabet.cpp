@@ -1,3 +1,18 @@
+// ///////////////////////////////////////////////////////////////// //
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
+// *Github Repository <https://github.com/ron4fun>             
+
+// *Distributed under the MIT software license, see the accompanying file LICENSE 
+// *or visit http ://www.opensource.org/licenses/mit-license.php.           
+
+// *Acknowledgements:                                  
+// ** //
+// *Thanks to Ugochukwu Mmaduekwe (https://github.com/Xor-el) for his creative        
+// *development of this library in Pascal/Delphi                         
+
+// ////////////////////////////////////////////////////// ///////////////
+
 #include "Base32Alphabet.h"
 #include "CrockfordBase32Alphabet.h"
 
@@ -11,7 +26,7 @@ Base32Alphabet::Base32Alphabet(const string &chars)
 	
 	EncodingTable.resize(chars.size());
 	LowPoint = 0;
-	HighPoint = chars.size();
+	HighPoint = (int32_t)chars.size();
 
 	for (idx = LowPoint; idx < HighPoint; idx++)
 		EncodingTable[idx] = chars[idx];

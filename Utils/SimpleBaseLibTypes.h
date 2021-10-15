@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -29,7 +29,7 @@ using namespace std;
 class SimpleBaseLibException //: public runtime_error
 {
 public:
-	SimpleBaseLibException(const char * text)
+	SimpleBaseLibException(const string &text)
 		: msg_(text)
 	{
 		// empty
@@ -48,7 +48,7 @@ private:
 class InvalidArgumentSimpleBaseLibException : public SimpleBaseLibException
 {
 public:
-	InvalidArgumentSimpleBaseLibException(const char * text)
+	InvalidArgumentSimpleBaseLibException(const string &text)
 		: SimpleBaseLibException(text)
 	{}
 }; // end class InvalidArgumentSimpleBaseLibException
@@ -56,7 +56,7 @@ public:
 class ArgumentNullSimpleBaseLibException : public SimpleBaseLibException
 {
 public:
-	ArgumentNullSimpleBaseLibException(const char * text)
+	ArgumentNullSimpleBaseLibException(const string &text)
 		: SimpleBaseLibException(text)
 	{}
 }; // end class ArgumentNullSimpleBaseLibException
@@ -64,7 +64,7 @@ public:
 class InvalidOperationSimpleBaseLibException : public SimpleBaseLibException
 {
 public:
-	InvalidOperationSimpleBaseLibException(const char * text)
+	InvalidOperationSimpleBaseLibException(const string &text)
 		: SimpleBaseLibException(text)
 	{}
 }; // end class InvalidOperationSimpleBaseLibException

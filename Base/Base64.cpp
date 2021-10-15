@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -18,7 +18,7 @@
 #include "../Utils/PointerUtils.h"
 #include "../Utils/Bits.h"
 
-const char * Base64::AlphabetNull = "Alphabet Instance cannot be Null \"%s\"";
+const string Base64::AlphabetNull = "Alphabet Instance cannot be null";
 
 Base64::Base64(const IBase64Alphabet _alphabet)
 {
@@ -38,7 +38,7 @@ string Base64::Encode(const SimpleBaseLibByteArray &_bytes) const
 	SimpleBaseLibCharArray _s, EncodingTable;
 	bool pad2, pad1;
 
-	bytesLen = bytes.size();
+	bytesLen = (int32_t)bytes.size();
 	if (bytesLen == 0) return "";
 
 	_d = &bytes[0];
@@ -141,7 +141,7 @@ SimpleBaseLibByteArray Base64::Decode(const string &text) const
 	uint8_t * dp, * _d, * p_decode;
 	
 
-	textLen = text.size();
+	textLen = (int32_t)text.size();
 	if (textLen == 0) return result;
 
 	tempArray.resize(textLen);
@@ -154,7 +154,7 @@ SimpleBaseLibByteArray Base64::Decode(const string &text) const
 	_p = &tempArray[0];
 	DecodingTable = alphabet->GetDecodingTable();
 	p_decode = &DecodingTable[0];
-	pEnd = PointerUtils::Offset(_p, tempArray.size());
+	pEnd = PointerUtils::Offset(_p, (int32_t)tempArray.size());
 
 	p2 = _p;
 
@@ -178,19 +178,19 @@ SimpleBaseLibByteArray Base64::Decode(const string &text) const
 
 	while (i < blocks)
 	{
-		temp1 = Process(&p2, pEnd, p_decode);
+		temp1 = Process(&p2, p_decode);
 
-		temp2 = Process(&p2, pEnd, p_decode);
+		temp2 = Process(&p2, p_decode);
 
 		*dp = uint8_t((temp1 << 2) | (Bits::Asr32(temp2 & 0x30, 4)));
 		dp++;
 
-		temp1 = Process(&p2, pEnd, p_decode);
+		temp1 = Process(&p2, p_decode);
 
 		*dp = uint8_t((Bits::Asr32(temp1 & 0x3C, 2)) | ((temp2 & 0x0F) << 4));
 		dp++;
 
-		temp2 = Process(&p2, pEnd, p_decode);
+		temp2 = Process(&p2, p_decode);
 
 		*dp = uint8_t(((temp1 & 0x03) << 6) | temp2);
 		dp++;
@@ -198,14 +198,14 @@ SimpleBaseLibByteArray Base64::Decode(const string &text) const
 		i++;
 	}
 
-	temp1 = Process(&p2, pEnd, p_decode);
+	temp1 = Process(&p2, p_decode);
 
-	temp2 = Process(&p2, pEnd, p_decode);
+	temp2 = Process(&p2, p_decode);
 
 	*dp = uint8_t((temp1 << 2) | (Bits::Asr32(temp2 & 0x30, 4)));
 	dp++;
 
-	temp1 = Process(&p2, pEnd, p_decode);
+	temp1 = Process(&p2, p_decode);
 
 	if (padding != 2) 
 	{
@@ -213,7 +213,7 @@ SimpleBaseLibByteArray Base64::Decode(const string &text) const
 		dp++;
 	}
 
-	temp2 = Process(&p2, pEnd, p_decode);
+	temp2 = Process(&p2, p_decode);
 	if (padding == 0)
 	{
 		*dp = uint8_t(((temp1 & 0x03) << 6) | temp2);
@@ -223,7 +223,7 @@ SimpleBaseLibByteArray Base64::Decode(const string &text) const
 	return _data;
 }
 
-uint8_t Base64::Process(char ** pInput, const char * pEnd, const uint8_t * decode_table)
+uint8_t Base64::Process(char ** pInput, const uint8_t * decode_table)
 {
 	char c = *(*pInput);
 	(*pInput)++;

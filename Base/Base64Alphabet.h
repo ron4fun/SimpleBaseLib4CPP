@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -79,7 +79,7 @@ private:
 	SimpleBaseLibCharArray EncodingTable;
 	SimpleBaseLibByteArray DecodingTable;
 
-	static const char * B64CharacterSet;
+	static const string B64CharacterSet;
 
 	static IBase64Alphabet Default, DefaultNoPadding, UrlEncoding, XmlEncoding, RegExEncoding, FileEncoding;
 

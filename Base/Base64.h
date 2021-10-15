@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -31,14 +31,14 @@ public:
 	virtual SimpleBaseLibByteArray Decode(const string &text) const;
 	
 private:
-	static inline uint8_t Process(char ** pInput, const char * pEnd, const uint8_t * decode_table);
+	static inline uint8_t Process(char ** pInput, const uint8_t * decode_table);
 
 private:
 	static const char paddingChar = '=';
 	
 	IBase64Alphabet alphabet = nullptr;
 
-	static const char * AlphabetNull;
+	static const string AlphabetNull;
 
 };
 

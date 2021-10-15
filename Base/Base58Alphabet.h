@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -55,9 +55,9 @@ public:
 private:
 	static IBase58Alphabet BitCoin, Ripple, Flickr;
 
-	static const char * EmptyAlphabet;
-	static const char * InvalidAlphabetLength;
-	static const char * InvalidCharacter;
+	static const string EmptyAlphabet;
+	static const string InvalidAlphabetLength;
+	static const string InvalidCharacter;
 
 	static const int32_t length = 58;
 

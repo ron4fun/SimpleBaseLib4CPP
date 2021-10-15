@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -19,8 +19,8 @@
 #include "../Utils/PointerUtils.h"
 #include "../Utils/Bits.h"
 
-const char * Base32::AlphabetNull = "Alphabet Instance cannot be Null \"%s\"";
-const char * Base32::InvalidCharacter = "Invalid character value in input: 0x%x \"c\"";
+const string Base32::AlphabetNull = "Alphabet Instance cannot be null";
+const string Base32::InvalidCharacter = "Invalid character value in input: 0x";
 
 Base32::Base32(const IBase32Alphabet _alphabet)
 {
@@ -38,9 +38,8 @@ string Base32::Encode(const SimpleBaseLibByteArray &_bytes, const bool padding) 
 	uint8_t * inputPtr, * pInput, * pEnd;
 	char * encodingTablePtr, * outputPtr, * pEncodingTable, * pOutput, * pOutputEnd;
 	
-	string result = "";
-	bytesLen = bytes.size();
-	if (bytesLen == 0) return result;
+	bytesLen = (int32_t)bytes.size();
+	if (bytesLen == 0) return "";
 
 	// we are ok with slightly larger buffer since the output string will always
 	// have the exact length of the output produced.
@@ -95,13 +94,7 @@ string Base32::Encode(const SimpleBaseLibByteArray &_bytes, const bool padding) 
 		}
 	}
 
-	result.resize(outputLen);
-	for (register size_t i = 0; i < size_t(outputLen); i++)
-	{
-		result[i] = *outputPtr;
-		outputPtr++;
-	}		
-
+	string result = string(outputBuffer.begin(), outputBuffer.begin() + outputLen);
 	return result.c_str();
 }
 
@@ -115,13 +108,13 @@ SimpleBaseLibByteArray Base32::Decode(const string &text) const
 	string trimmed;
 	
 	SimpleBaseLibByteArray result;
-	trimmed = Utilities::TrimRight(text, SimpleBaseLibCharArray({ paddingChar }));
-	textLen = trimmed.size();
+	trimmed = Utilities::TrimRight(text, { paddingChar });
+	textLen = (int32_t)trimmed.size();
 	
 	if (textLen == 0) return result;
 
 	 decodingTable = alphabet->GetDecodingTable();
-	 decodingTableLen = decodingTable.size();
+	 decodingTableLen = (int32_t)decodingTable.size();
 	 bitsLeft = bitsPerByte;
 	 outputLen = textLen * bitsPerChar / bitsPerByte;
 		

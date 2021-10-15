@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -21,7 +21,7 @@ IBase64Alphabet Base64Alphabet::UrlEncoding = nullptr;
 IBase64Alphabet Base64Alphabet::XmlEncoding = nullptr;
 IBase64Alphabet Base64Alphabet::RegExEncoding = nullptr;
 IBase64Alphabet Base64Alphabet::FileEncoding = nullptr;
-const char * Base64Alphabet::B64CharacterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const string Base64Alphabet::B64CharacterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 Base64Alphabet::Base64Alphabet(const string &chars, const char plusChar, const char slashChar, const bool _PaddingEnabled)
 {
@@ -32,7 +32,7 @@ Base64Alphabet::Base64Alphabet(const string &chars, const char plusChar, const c
 	EncodingTable.resize(newChars.size());
 	
 	LowPoint = 0;
-	HighPoint = newChars.size();
+	HighPoint = (int32_t)newChars.size();
 
 	for (idx = LowPoint; idx < HighPoint; idx++)
 		EncodingTable[idx] = newChars[idx];

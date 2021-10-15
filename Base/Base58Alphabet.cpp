@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -18,9 +18,9 @@
 IBase58Alphabet Base58Alphabet::BitCoin = nullptr;
 IBase58Alphabet Base58Alphabet::Ripple = nullptr;
 IBase58Alphabet Base58Alphabet::Flickr = nullptr;
-const char * Base58Alphabet::EmptyAlphabet = "Base58 alphabets cannot be empty \"%s\"";
-const char * Base58Alphabet::InvalidAlphabetLength = "Base58 alphabets need to be 58-characters long \"%s\"";
-const char * Base58Alphabet::InvalidCharacter = "Invalid character \"%s\"";
+const string Base58Alphabet::EmptyAlphabet = "Base58 alphabets cannot be empty";
+const string Base58Alphabet::InvalidAlphabetLength = "Base58 alphabets need to be 58-characters long";
+const string Base58Alphabet::InvalidCharacter = "Invalid character";
 
 
 Base58Alphabet::Base58Alphabet(const string &text)
@@ -35,7 +35,7 @@ Base58Alphabet::Base58Alphabet(const string &text)
 	
 	value = text;
 	LowPoint = 0;
-	HighPoint = text.size();
+	HighPoint = (int32_t)text.size();
 	
 	for (idx = LowPoint; idx < HighPoint; idx++)
 	{

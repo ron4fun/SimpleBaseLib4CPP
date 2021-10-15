@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -33,8 +33,8 @@ private:
 	static const uint8_t upperNumberDiff = 7;
 	static const uint8_t lowerUpperDiff = 32;
 
-	static const char * lowerAlphabet;
-	static const char * upperAlphabet;
+	static const string lowerAlphabet;
+	static const string upperAlphabet;
 
 	static inline void ValidateHex(const char c);
 
@@ -60,8 +60,8 @@ public:
 	virtual SimpleBaseLibByteArray Decode(const string &text) const;
 
 private:
-	static const char * InvalidHexCharacter;
-	static const char * InvalidTextLength;
+	static const string InvalidHexCharacter;
+	static const string InvalidTextLength;
 
 };
 

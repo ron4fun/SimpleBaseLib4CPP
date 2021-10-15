@@ -1,6 +1,6 @@
 // ///////////////////////////////////////////////////////////////// //
-// *C++ 11 HashFactory Library                                 
-// *Copyright(c) 2018  Mbadiwe Nnaemeka Ronald                 
+// *C++ 11 SimpleBaseLib4CPP Library                                 
+// *Copyright(c) 2021  Mbadiwe Nnaemeka Ronald                 
 // *Github Repository <https://github.com/ron4fun>             
 
 // *Distributed under the MIT software license, see the accompanying file LICENSE 
@@ -15,16 +15,16 @@
 
 #include "Base16.h"
 
-const char * Base16::lowerAlphabet = "0123456789abcdef";
-const char * Base16::upperAlphabet = "0123456789ABCDEF";
-const char * Base16::InvalidHexCharacter = "Invalid hex character: %s";
-const char * Base16::InvalidTextLength = "Text cannot be odd length %s";
+const string Base16::lowerAlphabet = "0123456789abcdef";
+const string Base16::upperAlphabet = "0123456789ABCDEF";
+const string Base16::InvalidHexCharacter = "Invalid hex character: ";
+const string Base16::InvalidTextLength = "Text cannot be odd length";
 
 void Base16::ValidateHex(const char c)
 {
 	if (!(((c >= '0') && (c <= '9')) || ((c >= 'A') && (c <= 'F')) ||
 		((c >= 'a') && (c <= 'f'))))
-		throw InvalidOperationSimpleBaseLibException(InvalidHexCharacter);
+		throw InvalidOperationSimpleBaseLibException(InvalidHexCharacter + c);
 			
 }
 
